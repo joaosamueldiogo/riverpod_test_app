@@ -3,7 +3,7 @@ import 'package:riverpod_test_app/state_management/app_state.dart';
 
 class AppNotifier extends Notifier<AppState> {
   void setName(String newName) {
-    state = state.copyWith(name: newName);
+    state.name = newName;
   }
 
   void markCategoryAsSeen(String categoryName) {

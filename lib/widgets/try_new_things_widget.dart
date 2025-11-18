@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_test_app/main.dart';
 import 'package:riverpod_test_app/models/category.dart';
 import 'package:riverpod_test_app/state_management/state_management.dart';
 import 'package:riverpod_test_app/widgets/boxed_image.dart';
