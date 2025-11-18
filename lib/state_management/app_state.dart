@@ -2,12 +2,12 @@ class AppState {
   String name;
   List<String> categoriesSeen = [];
 
-  AppState({this.name = "", this.categoriesSeen = const []});
+  AppState({this.name = "User", this.categoriesSeen = const []});
 
-  AppState copyWith({List<String>? categoriesSeen}) {
+  AppState copyWith({String? name, List<String>? categoriesSeen}) {
     return AppState(
+      name: name ?? this.name,
       categoriesSeen: categoriesSeen ?? this.categoriesSeen,
-      name: name,
     );
   }
 

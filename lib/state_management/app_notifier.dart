@@ -1,0 +1,22 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_test_app/state_management/app_state.dart';
+
+class AppNotifier extends Notifier<AppState> {
+  void setName(String newName) {
+    state = state.copyWith(name: newName);
+  }
+
+  void markCategoryAsSeen(String categoryName) {
+    if (!state.hasSeenCategory(categoryName)) {
+      state = state.copyWith(
+        categoriesSeen: List.from(state.categoriesSeen)..add(categoryName),
+      );
+    }
+  }
+
+  @override
+  AppState build() {
+    state = AppState();
+    return state;
+  }
+}

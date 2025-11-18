@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:riverpod_test_app/main.dart';
 import 'package:riverpod_test_app/pages/home.dart';
+import 'package:riverpod_test_app/state_management/state_management.dart';
 
-class SignIn extends StatelessWidget {
+class SignIn extends ConsumerWidget {
   const SignIn({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    AppState appState = ref.watch(appProvider);
+
     void navigateToHome() {
-      if (context.read<AppCubit>().state.name.isEmpty) return;
+      if (appState.name.isEmpty) return;
       Navigator.of(
         context,
       ).pushReplacement(MaterialPageRoute(builder: (context) => HomePage()));
@@ -48,7 +52,7 @@ class SignIn extends StatelessWidget {
                     ),
                     TextField(
                       onChanged: (value) =>
-                          context.read<AppCubit>().setName(value),
+                          ref.read(appProvider.notifier).setName(value),
                       onSubmitted: (_) => navigateToHome(),
                       style: TextStyle(color: Color(0xff424242), fontSize: 14),
                       decoration: InputDecoration(

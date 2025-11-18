@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:riverpod_test_app/main.dart';
+import 'package:riverpod_test_app/state_management/state_management.dart';
 
-class WelcomeCover extends StatelessWidget {
+class WelcomeCover extends ConsumerWidget {
   const WelcomeCover({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    AppState appState = ref.watch(appProvider);
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.15,
       width: double.infinity,
@@ -18,17 +21,13 @@ class WelcomeCover extends StatelessWidget {
               fit: BoxFit.cover,
             ),
             Center(
-              child: BlocBuilder<AppCubit, AppState>(
-                builder: (context, state) {
-                  return Text(
-                    "Hi, ${state.name}!",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  );
-                },
+              child: Text(
+                "Hi, ${appState.name}!",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ],

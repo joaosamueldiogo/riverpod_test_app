@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:riverpod_test_app/main.dart';
+import 'package:riverpod_test_app/state_management/state_management.dart';
 
-class Modal extends StatelessWidget {
+class Modal extends ConsumerWidget {
   const Modal({super.key, required this.categoryName});
 
   final String categoryName;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Container(
       height: MediaQuery.of(context).size.height / 2,
       decoration: BoxDecoration(
@@ -31,7 +33,7 @@ class Modal extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
               onPressed: () {
-                // TODO context.read<AppCubit>().markCategoryAsSeen(categoryName);
+                ref.read(appProvider.notifier).markCategoryAsSeen(categoryName);
                 Navigator.pop(context);
               },
             ),
