@@ -7,13 +7,13 @@ class Category {
   static List<Category> getCategories() {
     List<Category> categories = [];
 
-    categories.add(
-      Category(
-        name: "Italian",
-        imageUrl:
-            "https://images.pexels.com/photos/30504705/pexels-photo-30504705.jpeg",
-      ),
-    );
+    // categories.add(
+    //   Category(
+    //     name: "Italian",
+    //     imageUrl:
+    //         "https://images.pexels.com/photos/30504705/pexels-photo-30504705.jpeg",
+    //   ),
+    // );
     categories.add(
       Category(
         name: "Portuguese",

@@ -14,6 +14,10 @@ class AppNotifier extends Notifier<AppState> {
     }
   }
 
+  void resetCategoriesSeen() {
+    state = state.copyWith(categoriesSeen: []);
+  }
+
   @override
   AppState build() {
     state = AppState();
